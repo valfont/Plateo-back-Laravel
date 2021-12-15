@@ -15,7 +15,9 @@ class ArtisanController extends Controller
      */
     public function index()
     {
-        //
+        $Artisan = Artisan::all();
+        return response()->json(['success'=>$Artisan,
+                                 'result'=>'voici tous les Artisans']);
     }
 
     /**
@@ -40,7 +42,7 @@ class ArtisanController extends Controller
         $Artisan = Artisan::create($data);
         
         return response()->json(['success'=> $Artisan,
-                                  'result'=>'Nouvelle Artisan Créer']);
+                                  'result'=>'Nouvelle Artisan créer']);
     }
 
     /**
@@ -85,6 +87,10 @@ class ArtisanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // $Artisan = Artisan::findorfail($id);
+        // $Artisan->delete();
+        // return response()->json(['success'=> $Artisan,
+        //                           'result'=>'Artisan supprimé']);
+
     }
 }
