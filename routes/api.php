@@ -21,5 +21,7 @@ use App\Http\Controllers\DemandeController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// Routes resource pour l'ajout et l'affichage des artisans 
 Route::resource('artisan', ArtisanController::class);
+//  Routes api Clients 
+Route::resource('client', ClientController::class);
