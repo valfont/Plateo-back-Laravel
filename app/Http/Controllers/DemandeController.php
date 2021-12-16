@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Demande;
+use App\Models\Client;
+use App\Http\Controllers\ClientController;
 
 class DemandeController extends Controller
 {
@@ -14,7 +15,9 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        //
+        $demande = Demande::all();
+        return response()->json(['success'=>$demande,
+                                 'result'=>'Voici l ensemble des demandes']);
     }
 
     /**
@@ -35,7 +38,11 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $demande = Demande::create($data);
+        
+        return response()->json(['success'=> $demande,
+                                  'result'=>'Nouvelle Demande créer']);
     }
 
     /**

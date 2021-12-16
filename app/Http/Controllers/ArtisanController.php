@@ -39,9 +39,9 @@ class ArtisanController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $Artisan = Artisan::create($data);
+        $artisan = Artisan::create($data);
         
-        return response()->json(['success'=> $Artisan,
+        return response()->json(['success'=> $artisan,
                                   'result'=>'Nouvelle Artisan créer']);
     }
 
