@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Demande;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
 
 
 class DemandeController extends Controller
@@ -37,17 +37,17 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        Validator::make($request->all(), [
-            'title'=> 'string|unique:demandes|required',
-            'description'=> 'string',
-            'adresse' => 'string',
-            'clients_id' => 'integer',
-            'admins_id' => 'integer',
-            'artisans_id' => 'integer',
-            'start' => 'nullable|date',
-            'end' => 'nullable|date|after:start',
-            'status' => 'string'
-       ])->validate();
+    //     Validator::make($request->all(), [
+    //         'title'=> 'string|unique:demandes|required',
+    //         'description'=> 'string',
+    //         'adresse' => 'string',
+    //         'clients_id' => 'integer',
+    //         'admins_id' => 'integer',
+    //         'artisans_id' => 'integer',
+    //         'start' => 'nullable|date',
+    //         'end' => 'nullable|date|after:start',
+    //         'status' => 'string'
+    //    ])->validate();
         $data = $request->all();
         $demande = Demande::create($data);
         

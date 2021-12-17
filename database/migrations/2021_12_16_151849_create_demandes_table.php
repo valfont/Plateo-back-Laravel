@@ -21,7 +21,7 @@ class CreateDemandesTable extends Migration
             $table->unsignedBigInteger('admins_id');
             $table->foreign('admins_id')->references('id')->on('admins');
             $table->unsignedBigInteger('artisans_id');
-            $table->foreign('artisans_id')->references('id')->on('artisans');
+            $table->foreign('artisans_id')->references('id')->on('artisans')->nullable();
             $table->unsignedBigInteger('clients_id');
             $table->foreign('clients_id')->references('id')->on('clients');
             $table->datetime('start');
