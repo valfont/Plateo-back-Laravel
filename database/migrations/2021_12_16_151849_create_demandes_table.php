@@ -18,7 +18,7 @@ class CreateDemandesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('adresse');
-             $table->unsignedBigInteger('admins_id');
+            $table->unsignedBigInteger('admins_id');
             $table->foreign('admins_id')->references('id')->on('admins');
             $table->unsignedBigInteger('artisans_id');
             $table->foreign('artisans_id')->references('id')->on('artisans');
