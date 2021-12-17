@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Artisan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -38,11 +39,20 @@ class ArtisanController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $Artisan = Artisan::create($data);
+        Validator::make($request->all(), [
+            'nameRS' => 'string|unique:artisans|required',
+            'adresse' => 'string',
+            'siren' => 'integer|digits_between:9,10',
+            'email' => 'string|required',
+            'tel' => 'integer',
+            'comment' => 'string'
+        ])->validate();
         
-        return response()->json(['success'=> $Artisan,
-                                  'result'=>'Nouvelle Artisan créer']);
+        $data = $request->all();
+        $artisan = Artisan::create($data);
+        
+        return response()->json(['success'=> $artisan,
+                                  'result'=>'New client added with success']);
     }
 
     /**

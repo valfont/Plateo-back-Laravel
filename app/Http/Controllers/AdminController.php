@@ -35,7 +35,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $admin = Admin::create($data);
+        
+        return response()->json(['success'=> $admin,
+                                  'result'=>'Nouvelle Artisan créer']);
     }
 
     /**

@@ -18,12 +18,12 @@ class CreateDemandesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('adresse');
-            $table->unsignedBigInteger('clients_id');
-            $table->foreign('clients_id')->references('id')->on('clients');
-            $table->unsignedBigInteger('admin_id');
-            $table->foreign('admin_id')->references('id')->on('admin');
+             $table->unsignedBigInteger('admins_id');
+            $table->foreign('admins_id')->references('id')->on('admins');
             $table->unsignedBigInteger('artisans_id');
             $table->foreign('artisans_id')->references('id')->on('artisans');
+            $table->unsignedBigInteger('clients_id');
+            $table->foreign('clients_id')->references('id')->on('clients');
             $table->datetime('start');
             $table->datetime('end');
             $table->string('status');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Demande;
 
+
 class DemandeController extends Controller
 {
     /**
@@ -35,7 +36,11 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $demande = Demande::create($data);
+        
+        return response()->json(['success'=> $demande,
+                                  'result'=>'New mission added with success']);
     }
 
     /**

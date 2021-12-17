@@ -13,7 +13,7 @@ class Demande extends Model
         'description',
         'adresse',
         'clients_id',
-        'admin_id',
+        'admins_id',
         'artisans_id',
         'start',
         'end',
