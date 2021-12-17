@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\MailArtisanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('artisan', ArtisanController::class);
 
 Route::resource('demande', DemandeController::class);
+
+Route::resource('mailartisan', MailArtisanController::class);
 

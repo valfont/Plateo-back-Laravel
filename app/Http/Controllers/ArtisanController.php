@@ -40,9 +40,8 @@ class ArtisanController extends Controller
         $data = $request->all();
         $artisan = Artisan::create($data);
         
-        return response()->json([
-            'success'=> $artisan,
-            'result'=>'Nouvelle Artisan créer']);
+        return response()->json(['success'=> $artisan,
+        'result'=>'Nouvelle Demande créer']);
     }
 
     /**
