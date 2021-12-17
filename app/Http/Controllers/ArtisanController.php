@@ -15,9 +15,8 @@ class ArtisanController extends Controller
      */
     public function index()
     {
-        $Artisan = Artisan::all();
-        return response()->json(['success'=>$Artisan,
-                                 'result'=>'voici tous les Artisans']);
+        $artisan = Artisan::all();
+        return response()->json($artisan);
     }
 
     /**
@@ -39,10 +38,11 @@ class ArtisanController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $Artisan = Artisan::create($data);
+        $artisan = Artisan::create($data);
         
-        return response()->json(['success'=> $Artisan,
-                                  'result'=>'Nouvelle Artisan créer']);
+        return response()->json([
+            'success'=> $artisan,
+            'result'=>'Nouvelle Artisan créer']);
     }
 
     /**
