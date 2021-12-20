@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('nameRS')->nullable();
             $table->integer('siren')->nullable();
             $table->integer('tel');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('adresse');
             $table->string('comment');
             $table->timestamps();
