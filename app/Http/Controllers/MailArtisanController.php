@@ -90,7 +90,12 @@ class MailArtisanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->get('email');
+        $MailArtisan = Artisan::where('email','=',$data)->first();
+        $request = Str::random(30);
+        $MailArtisan->loginToken=$request->loginToken;
+        $MailArtisan->save();
+        return response()->json($MailArtisan);
     }
 
     /**

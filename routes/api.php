@@ -30,3 +30,6 @@ Route::resource('/artisan', ArtisanController::class);
 Route::resource('/client', ClientController::class);
 // Route pour ajout et affichage des demandes
 Route::resource('/demande', DemandeController::class);
+
+
+

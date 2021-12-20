@@ -37,8 +37,6 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
 
-       
-
         //dans data, on récupère tout ce qu'il y a dans le formulaire
         $demande=Demande::create(['title'=>$request->title,
                                   'description'=>$request->description,
@@ -85,7 +83,14 @@ class DemandeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $demande = Demande::find($id);
+        $demande->update($request->all());
+        $demande->save();
+        return response()->json($demande);
+        // $demande = Demande::find($id);
+        // Demande::where('id', $id)->update(["status" => $request->status]);
+        // return response()->json($demande);
+        
     }
 
     /**
