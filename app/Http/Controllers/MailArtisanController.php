@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Artisan;
+use Illuminate\Support\Str;
 
-class ClientController extends Controller
+class MailArtisanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,9 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-        {
-            $client = Client::all();
-            return response()->json($client);
-        }
-
+    {
+        
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,11 +36,27 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        // récupérer le mail du login artisan
 
-        $data = $request->all();
-        $client= Client::create($data);
+        $data = $request->get('email');
+
+        // trouver le meme mail dans la base de donnée Artisan
+
+        $MailArtisan = Artisan::where('email','=',$data)->first();
         
-        return response()->json($client);
+        // générer un token
+
+        $token = Str::random(30);
+        
+        
+        // update la ligne artisan pour incérer le token 
+
+        $MailArtisan->loginToken=$token->loginToken;
+        $MailArtisan->save();
+        return response()->json($MailArtisan);
+
+        
+
     }
 
     /**

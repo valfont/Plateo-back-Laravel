@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\MailArtisanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use App\Http\Controllers\DemandeController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 // Route pour ajout et affichage des artisans
 Route::resource('/artisan', ArtisanController::class);
 // Route pour ajout et affichage des clients
