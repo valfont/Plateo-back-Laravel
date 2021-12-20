@@ -18,7 +18,7 @@ class CreateArtisansTable extends Migration
             $table->string('nameRS');
             $table->string('adresse');
             $table->integer('siren');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->integer('tel');
             $table->string('comment');
             $table->string('loginToken')->nullable();
