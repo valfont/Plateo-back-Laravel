@@ -21,7 +21,7 @@ class CreateArtisansTable extends Migration
             $table->string('email');
             $table->integer('tel');
             $table->string('comment');
-            $table->string('loginToken');
+            //$table->string('loginToken');
             $table->timestamps();
         });
     }

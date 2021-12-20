@@ -14,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        {
+            $client = Client::all();
+            return response()->json($client);
+        }
     }
 
     /**
@@ -35,7 +38,10 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $client= Client::create($data);
+        
+        return response()->json($client);
     }
 
     /**

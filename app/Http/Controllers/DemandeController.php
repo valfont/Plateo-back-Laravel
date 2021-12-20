@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Demande;
+use App\Models\Client;
+
 
 class DemandeController extends Controller
 {
@@ -14,7 +16,8 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        //
+      $demande = Demande::all();
+      return response()->json($demande);
     }
 
     /**
@@ -35,7 +38,20 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+
+        //dans data, on récupère tout ce qu'il y a dans le formulaire
+        $demande=Demande::create(['title'=>$request->title,
+                                  'description'=>$request->description,
+                                  'adresse'=>$request->adresse,
+                                  'clients_id'=>$request->clients_id,
+                                  'start'=>$request->start,
+                                  'end'=>$request->end,
+                                  'status'=>$request->status]);
+
+
+
+        return response()->json($demande);
     }
 
     /**

@@ -14,6 +14,8 @@ class Client extends Model
         'nameRS',
         'siren',
         'tel',
-        'adresse'
+        'email',
+        'adresse', 
+        'comment'
     ];
 }
