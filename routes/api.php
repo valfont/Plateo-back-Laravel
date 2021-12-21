@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DemandeController;
-use App\Http\Controllers\MailArtisanController;
+use App\Http\Controllers\MagicLoginController;
 
 
 /*
@@ -30,6 +30,12 @@ Route::resource('/artisan', ArtisanController::class);
 Route::resource('/client', ClientController::class);
 // Route pour ajout et affichage des demandes
 Route::resource('/demande', DemandeController::class);
+
+// Route d'envoi du magic link pour les artisans
+Route::post("/magic-link/artisan", [MagicLoginController::class, "sendMagicLink"]);
+
+// Route de connexion artisan
+Route::post("/auth/artisan", [MagicLoginController::class, "artisanLogin"]);
 
 
 
