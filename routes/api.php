@@ -38,7 +38,7 @@ Route::middleware('auth:sanctum')->resource('/artisan', ArtisanController::class
 // Route pour ajout et affichage des clients
 Route::middleware('auth:sanctum')->resource('/client', ClientController::class);
 // Route pour ajout et affichage des demandes
-Route::middleware('auth:sanctum')->resource('/demande', DemandeController::class);
+Route::resource('/demande', DemandeController::class);
 
                         // ******Routes API Magic-link*****//
 // Route d'envoi du magic link pour les artisans
