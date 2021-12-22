@@ -103,6 +103,6 @@ class DemandeController extends Controller
     {
         $demande = Demande::find($id);
         $demande->delete();
-        return response()->json(['message'=>'Votre demande à bien été supprimer']);
+        return response()->json($demande);
     }
 }
