@@ -101,6 +101,8 @@ class DemandeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $demande = Demande::find($id);
+        $demande->delete();
+        return response()->json(['message'=>'Votre demande à bien été supprimer']);
     }
 }

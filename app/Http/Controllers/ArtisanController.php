@@ -85,10 +85,9 @@ class ArtisanController extends Controller
      */
     public function destroy($id)
     {
-        // $Artisan = Artisan::findorfail($id);
-        // $Artisan->delete();
-        // return response()->json(['success'=> $Artisan,
-        //                           'result'=>'Artisan supprimé']);
+        $artisan = Artisan::find($id);
+        $artisan->delete();
+        return response()->json(['message'=>'Votre demande à bien été supprimer']);
 
     }
 }
