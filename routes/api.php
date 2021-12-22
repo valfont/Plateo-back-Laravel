@@ -34,9 +34,9 @@ Route::post('/admin-login', [AdminController::class, 'login']);
                         // ******Routes API Artisans*****//
 
 // Route pour ajout et affichage des artisans
-Route::middleware('auth:sanctum')->resource('/artisan', ArtisanController::class);
+Route::resource('/artisan', ArtisanController::class);
 // Route pour ajout et affichage des clients
-Route::middleware('auth:sanctum')->resource('/client', ClientController::class);
+Route::resource('/client', ClientController::class);
 // Route pour ajout et affichage des demandes
 Route::resource('/demande', DemandeController::class);
 
@@ -45,7 +45,7 @@ Route::resource('/demande', DemandeController::class);
 Route::post("/magic-link/artisan", [MagicLoginController::class, "sendMagicLink"]);
 
 // Route de connexion artisan
-Route::middleware('auth:sanctum')->post("/auth/artisan", [MagicLoginController::class, "artisanLogin"]);
+Route::post("/auth/artisan", [MagicLoginController::class, "artisanLogin"]);
 
 
 

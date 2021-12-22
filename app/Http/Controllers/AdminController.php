@@ -31,11 +31,11 @@ class AdminController extends Controller
     }
     public function login(Request $request)
     {
-        if (!Auth::attempt($request->only('email'))) {
-         return response()->json([
-        'message' => 'Invalid login details'
-                ], 401);
-            }
+        // if (!Auth::attempt($request->only('email'))) {
+        //  return response()->json([
+        // 'message' => 'Invalid login details'
+        //         ], 401);
+        //     }
 
         $admin = Admin::where('email', $request['email'])->firstOrFail();
 

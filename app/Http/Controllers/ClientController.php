@@ -89,6 +89,6 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
         $client->delete();
-        return response()->json(['message'=>'Votre demande à bien été supprimer']);
+        return response()->json($client);
     }
 }
